@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandforge</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<style>
+    .back {
+        background: url('images/background.webp') no-repeat center center/cover;
+        height: 100vh;
+    }
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .nav-link {
+        color: #FFF;
+    }
+
+    /* Position the Showreel button in the bottom-right corner */
+    .showreal_div {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    /* Circle container */
+    .circle_block {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Play button */
+    .play-btn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Rotating Circular Text */
+    .circle_text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120px;
+        height: 120px;
+        animation: textRotation 8s linear infinite;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    /* Text Rotation Animation */
+    @keyframes textRotation {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    /* Change text color */
+    .circle_text text {
+        fill: #8C6239;
+        /* Change to any color */
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    /* card */
+    /* .card-box {
+            background-color: #C5C6C7;
+        } */
+    .stats h2 {
+        font-size: 35px;
+        color: #909497;
+        font-weight: 600 !important;
+    }
+
+    .stats p {
+        font-size: 20px;
+        color: #909497;
+        font-weight: 600 !important;
+    }
+</style>
+
+<body style="background-color: #111;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #8C6239;">
+        <div class="container-fluid" style="font-weight: 500; margin-bottom: -25px;">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="Logo" height="100" width="120">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-5  fs-5 mb-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Main Code -->
+    <div class="back d-flex align-items-center justify-content-center position-relative">
+        <div class="overlay"></div>
+        <div class="container text-center text-white position-relative z-2">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="fw-light display-6 fw-semibold">BRANDOFORGE</p>
+                    <p class="fw-bold display-4 fw-bold">One-Stop Solution for Branding, Marketing & Digital Growth</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="showreal_div x_padding">
+        <div class="_play_reel" data-vimeo="1066293093">
+            <div class="circle_block">
+                <!-- Play Button -->
+                <svg class="play-btn" xmlns="http://www.w3.org/2000/svg" width="67.583" height="67.583"
+                    viewBox="0 0 67.583 67.583">
+                    <g id="Group_11" data-name="Group 11" transform="translate(-1751.939 -892.057)">
+                        <ellipse id="Ellipse_495" data-name="Ellipse 495" cx="33.792" cy="33.792" rx="33.792"
+                            ry="33.792" transform="translate(1751.939 892.057)" fill="black"></ellipse>
+                        <path id="Polygon_1" data-name="Polygon 1" d="M10.656,0,21.311,17.375H0Z"
+                            transform="translate(1797.058 914.255) rotate(90)" fill="white"></path>
+                    </g>
+                </svg>
+
+                <!-- Circular Rotating Text -->
+                <svg viewBox="0 0 200 200" class="circle_text">
+                    <path id="textPath" d="M 85,0 A 85,85 0 0 1 -85,0 A 85,85 0 0 1 85,0" transform="translate(100,100)"
+                        fill="none"></path>
+                    <g font-size="15.1px">
+                        <text text-anchor="start" fill="white"> <!-- Change text color here -->
+                            <textPath href="#textPath" startOffset="0%">WATCH SHOWREEL - WATCH SHOWREEL - WATCH SHOWREEL
+                                -</textPath>
+                        </text>
+                    </g>
+                </svg>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="container my-5">
+        <h1 class="text-center mb-5 display-6 fw-bold" style="color: #909497;">We Provide</h1>
+        <div class="stats row g-4  justify-content-center">
+            <div class="col-12 col-md-4">
+                <div class="card-box p-4 hover-shadow">
+                    <i class="bi bi-award-fill text-primary fs-1"></i>
+                    <img src="images/premium.png" alt="Premium Branding" class="img-fluid w-100">
+                    <h2 class="fw-bold mt-4">Premium Branding</h2>
+                    <p class="mt-3 ">A premium brand isn't just about high-quality products—it’s about an experience, a
+                        statement, and a lasting impression. From elegant designs to compelling storytelling, every
+                        detail counts in crafting a brand that stands above the rest</p>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-4">
+                <div class="card-box p-4  hover-shadow">
+                    <i class="bi bi-people-fill text-success fs-1"></i>
+                    <img src="images/premium.png" alt="Premium Branding" class="img-fluid w-100">
+                    <h2 class="fw-bold mt-4">Design</h2>
+                    <p class="mt-3 ">Great design isn’t just about looks—it’s about purpose, emotion, and seamless
+                        experience. Whether it’s a stunning logo, a sleek interface, or a bold visual identity, premium
+                        design elevates brands, captivates audiences, and leaves a lasting impression.</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card-box p-4   hover-shadow">
+                    <i class="bi bi-person-check-fill text-warning fs-1"></i>
+                    <img src="images/premium.png" alt="Premium Branding" class="img-fluid w-100">
+                    <h2 class="fw-bold mt-4">Digital Marketing Solutions </h2>
+                    <p class="mt-3">In the digital world, visibility is everything. From data-driven strategies to
+                        engaging content, premium digital marketing solutions help brands connect, convert, and grow.
+                        Elevate your online presence and turn clicks into loyal customers.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer class=" text-light py-4" style="background-color: #8C6239;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Address</h5>
+                    <p class="mb-1">Neuer Markt 2, Baden-Baden, Germany</p>
+                    <p class="mb-1">+49 7221 22407</p>
+                    <p><a href="mailto:info@cara-re.eu.com" class="text-light text-decoration-none">info@cara-re.eu.com</a></p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Legacy</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Terms Of Use</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Regulations</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Newsletter</h5>
+                    <p>Don't miss out on the latest digital marketing insights, expert tips, and exclusive offers. Subscribe to us for strategies to elevate your brand.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-success" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3 border-top pt-3">
+                &copy; Cara-Re Marketing, All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+<!-- </html><div>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <img src="images/logo.png" alt="Logo" height="500">
+    </div>
+    
+</div> -->
