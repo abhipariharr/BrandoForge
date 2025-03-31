@@ -29,6 +29,7 @@
     }
 
     /* Position the Showreel button in the bottom-right corner */
+
     .showreal_div {
         position: fixed;
         bottom: 20px;
@@ -79,16 +80,14 @@
 
     /* Change text color */
     .circle_text text {
-        fill: #8C6239;
+        fill: #fff;
         /* Change to any color */
         font-size: 18px;
         font-weight: bold;
     }
 
     /* card */
-    /* .card-box {
-            background-color: #C5C6C7;
-        } */
+   
     .stats h2 {
         font-size: 35px;
         color: #909497;
@@ -100,6 +99,69 @@
         color: #909497;
         font-weight: 600 !important;
     }
+
+    @media (max-width: 768px) {
+  .play-btn {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Rotating Circular Text */
+    .circle_text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        animation: textRotation 8s linear infinite;
+        pointer-events: none;
+        z-index: 10;
+    }
+}
+
+   /* Modal Styling */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.video-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    background: black;
+}
+
+#localVideo {
+    width: 100%;
+    height: 100%;
+}
+
+.close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: white;
+    color: black;
+    border: none;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 </style>
 
 <body style="background-color: #111;">
@@ -144,7 +206,7 @@
         </div>
     </div>
     <div class="showreal_div x_padding">
-        <div class="_play_reel" data-vimeo="1066293093">
+        <div class="_play_reel" data-video="images/video.mp4"> 
             <div class="circle_block">
                 <!-- Play Button -->
                 <svg class="play-btn" xmlns="http://www.w3.org/2000/svg" width="67.583" height="67.583"
@@ -156,26 +218,36 @@
                             transform="translate(1797.058 914.255) rotate(90)" fill="white"></path>
                     </g>
                 </svg>
-
+        
                 <!-- Circular Rotating Text -->
                 <svg viewBox="0 0 200 200" class="circle_text">
                     <path id="textPath" d="M 85,0 A 85,85 0 0 1 -85,0 A 85,85 0 0 1 85,0" transform="translate(100,100)"
                         fill="none"></path>
                     <g font-size="15.1px">
-                        <text text-anchor="start" fill="white"> <!-- Change text color here -->
-                            <textPath href="#textPath" startOffset="0%">WATCH SHOWREEL - WATCH SHOWREEL - WATCH SHOWREEL
-                                -</textPath>
+                        <text text-anchor="start" fill="white">
+                            <textPath href="#textPath" startOffset="0%">WATCH SHOWREEL - WATCH SHOWREEL - WATCH SHOWREEL -</textPath>
                         </text>
                     </g>
                 </svg>
-
             </div>
         </div>
+        
+        <!-- Video Modal -->
+        <div id="videoModal" class="video-modal">
+            <div class="video-container">
+                <video id="localVideo" controls>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <button class="close-btn">&times;</button>
+            </div>
+        </div>
+        
     </div>
 
     <!-- Stats Section -->
     <div class="container my-5">
-        <h1 class="text-center mb-5 display-6 fw-bold" style="color: #909497;">We Provide</h1>
+        <h1 class="text-center mb-5 display-6 fw-bold" style="color: #fff;"><u>We Provide</u></h1>
         <div class="stats row g-4  justify-content-center">
             <div class="col-12 col-md-4">
                 <div class="card-box p-4 hover-shadow">
@@ -257,8 +329,41 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
-<!-- </html><div>
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const playReel = document.querySelector("._play_reel");
+        const playButton = playReel.querySelector(".play-btn");
+        const modal = document.getElementById("videoModal");
+        const video = document.getElementById("localVideo");
+        const closeBtn = document.querySelector(".close-btn");
+    
+        playButton.addEventListener("click", function () {
+            const videoSrc = playReel.getAttribute("data-video");
+            if (videoSrc) {
+                video.querySelector("source").src = videoSrc;
+                video.load();
+                modal.style.display = "flex";
+            }
+        });
+    
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+            video.pause();
+        });
+    
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                video.pause();
+            }
+        });
+    });
+    </script>
+</html>
+  <!--   <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <img src="images/logo.png" alt="Logo" height="500">
     </div>
     
